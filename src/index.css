@@ -60,7 +60,11 @@ button {
   }
   50% {
     transform: scale(1.1) rotate(2deg);
+<<<<<<< HEAD
     text-shadow: 0 0 10px var(--pulse-color);
+=======
+    text-shadow: 0 0 10px var(--pulse-color);
+>>>>>>> front-upd
   }
   0% {
     transform: scale(1);

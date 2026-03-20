@@ -23,12 +23,17 @@ export default function App() {
         setStart(!start);
     };
 
+    const setTheme = () => {
+        document.body.classList.toggle('dark-theme')
+    }
+
     const set = () => {
         setStart(!start)
     }
 
     const clear = () => {
         setTime((prev) => prev = 0)
+        document.querySelector('.Time').classList.remove("over")
     }
 
     useEffect(() => {
@@ -42,7 +47,7 @@ export default function App() {
                     }
                     return prev + 1
                 })
-            }, 1000)
+            }, 100)
             return () => clearInterval(interval)
         }
 
@@ -52,13 +57,16 @@ export default function App() {
         if (limit > 0 && time >= limit * 60) {
             setStart(false);
             audioRef.current.play().catch(err => console.error("Ошибка:", err));
+            document.querySelector('.Time').classList.toggle('over')
         }
     }, [time, limit]);
 
     return (
         <div className="app">
             <h1>Timer</h1>
-            <h1>{formatTime(time)}</h1>
+            <h1 className={`Time`}
+            >{formatTime(time)}
+            </h1>
             <div className="timer-info">
                 {start ?
                     <span className="status running">● Running</span>
@@ -73,6 +81,9 @@ export default function App() {
                 </button>
                 <button onClick={clear}
                         className="clear">Clear
+                </button>
+                <button onClick={setTheme}>
+                    C
                 </button>
             </div>
             <input type="number"
