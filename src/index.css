@@ -4,8 +4,10 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+
+  --color: rgb(39, 39, 39);
+  --bg-color: #ffffff;
+  --pulse-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,11 +15,25 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.dark-theme{
+  --color: rgba(255, 255, 255, 0.87);
+  --bg-color: #242424;
+}
+
+.over{
+  --pulse-color: #f33232;
+  color: #f33232;
+  animation: pulse-animation 1s infinite;
+}
+
 body {
   margin: auto;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  background-color: var(--bg-color);
+  color: var(--color);
 }
 
 h1 {
@@ -32,13 +48,22 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  color: var(--color);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+@keyframes pulse-animation{
+  0% {
+    transform: scale(1);
+    text-shadow: 0 0 10px var(--pulse-color);
+  }
+  50% {
+    transform: scale(1.1) rotate(2deg);
+    text-shadow: 0 0 10px var(--pulse-color);
+  }
+  0% {
+    transform: scale(1);
+  }
 }
 
