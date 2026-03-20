@@ -1,0 +1,52 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #FFF;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.menu{
+  display: flex;
+  justify-content: center;
+
+  padding: 10px;
+  gap: 10px;
+}
+
+.start{
+  background-color: #84D672;
+}
+
+.stop{
+  background-color: red;
+}
+
+.clear:hover{
+  background: black;
+}
+
+button{
+  all: unset;
+  border: 1px solid #CCC;
+  padding: 6px;
+  border-radius: 8px;
+  transition: 0.2s;
+
+  &:hover{
+    opacity: 0.7;
+    color: #FFF;
+    cursor: pointer;
+  }
+}
+
+h1 {
+  color: #dadada;
+  margin-bottom: 30px;
+}
+
+/* Add your styles */
